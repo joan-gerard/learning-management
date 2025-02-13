@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useCarousel } from "@/hooks/useCarousel";
+import { useGetCoursesQuery } from "@/state/api";
 
 const FEATURED_TAGS = ["web dev", "IT", "react.js", "next.js", "python"];
 
 const Landing = () => {
   const currentImage = useCarousel({ totalImages: 3 });
-
+  const { data: courses, isLoading, isError } = useGetCoursesQuery({});
+  console.log("COURSES", courses);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -61,9 +63,9 @@ const Landing = () => {
       >
         <h2 className="landing__featured-title">Featured Courses</h2>
         <p className="landing__featured-description">
-          From beginner to advanced, in all industries, we have the right courses
-          just for you and preparing your entire journey for learning and making
-          the most.
+          From beginner to advanced, in all industries, we have the right
+          courses just for you and preparing your entire journey for learning
+          and making the most.
         </p>
         <div className="landing__tags">
           {FEATURED_TAGS.map((tag) => (
