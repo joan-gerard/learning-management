@@ -21,6 +21,8 @@ const Landing = () => {
   };
 
   if (isLoading) return <LandingLoadingSkeleton />;
+
+  if (isError) console.log({ isError });
   return (
     <motion.div
       initial={{ opacity: 0 }}
