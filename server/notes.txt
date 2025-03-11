@@ -7,3 +7,11 @@ Help secure Express apps by setting HTTP response headers.
 
 * Morgan
 Morgan is a popular HTTP request logger middleware for Node.js. It simplifies the process of logging HTTP requests in a Node.js application by automatically generating logs for incoming requests. Morgan provides various logging formats and options, allowing developers to customize the logging output according to their requirements.
+
+* rimraf
+The rimraf command is an alternative to the Linux command rm -rf. It allows you to do deep recursive deletion of files and folders. The following command basically compil TS for us
+
+```
+"build": "rimraf dist && npx tsc"
+```
+
