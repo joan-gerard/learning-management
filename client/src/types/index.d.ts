@@ -161,8 +161,8 @@ declare global {
     subtitle?: string;
   }
 
-  interface SelectedCourseProps {
-    course: Course;
+  interface SelectedCourseInfoProps {
+    selectedCourse: Course;
     handleEnrollNow: (courseId: string) => void;
   }
 

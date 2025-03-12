@@ -5,6 +5,7 @@ import { useGetCoursesQuery } from "@/state/api";
 import { motion } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import SelectedCourseInfo from "./SelectedCourseInfo";
 
 function Search() {
   const router = useRouter();
@@ -35,6 +36,9 @@ function Search() {
     router.push(`/search?id=${course.courseId}`);
   };
 
+  const handleEnrollNow = (courseID: string) => {
+    router.push(`/checkout?step=1&id=${courseID}&showSignUp=false`);
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -60,6 +64,16 @@ function Search() {
             />
           ))}
         </motion.div>
+        {selectedCourse && (
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="search__selected-course"
+          >
+            <SelectedCourseInfo selectedCourse={selectedCourse} handleEnrollNow={handleEnrollNow} />
+          </motion.div>
+        )}
       </div>
     </motion.div>
   );
