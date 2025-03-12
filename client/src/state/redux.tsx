@@ -6,12 +6,12 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import globalReducer from "@/state";
-// import { api } from "@/state/api";
+import { api } from "@/state/api";
 
 /* REDUX STORE */
 const rootReducer = combineReducers({
   global: globalReducer,
-  // [api.reducerPath]: api.reducer,
+  [api.reducerPath]: api.reducer,
 });
 
 export const makeStore = () => {
@@ -39,8 +39,7 @@ export const makeStore = () => {
             "meta.baseQueryMeta.response",
           ],
         },
-      }),
-    // .concat(api.middleware),
+      }).concat(api.middleware),
   });
 };
 
